@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泛式 - 萌娘百科，万物皆可萌的百科全书！</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        blockquote {
+            font-weight: 100;
+            font-size: 2rem;
+            max-width: 600px;
+            line-height: 1.4;
+            position: relative;
+            padding: .5rem;
+        }
+
+        blockquote:before,
+        blockquote:after {
+            position: absolute;
+            color: rgb(178, 183, 242);
+            font-family: Georgia;
+            font-size: 4rem;
+            width: 4rem;
+            height: 4rem;
+        }
+
+        blockquote:before {
+            content: '“';
+            left: 5rem;
+            top: -1rem;
+        }
+
+        blockquote:after {
+            content: '”';
+            right: 5rem;
+            bottom: -1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-[url('assets/794974a6-f9cd-4450-ad26-88905d6d3714.jpg')] bg-cover bg-center bg-fixed min-h-screen pt-12
+    [&_a]:text-[rgb(94,137,209)] hover:[&_a]:text-blue-700
+    ">
+    <nav class="bg-white/80 p-2.5 h-12 text-gray-800 fixed top-0 left-0 right-0 z-50">
+        <div class="flex items-center justify-between h-full ">
+            <div class="flex items-center justify-between h-full">
+                <img src="assets/MoegirlPedia-Title.svg" alt="萌娘百科" class="h-full w-auto mx-2">
+                <div class="relative group" id="dropdown-container">
+                    <button
+                        class="bg-white/10 transition-colors duration-200 px-4 py-2 rounded text-sm hover:bg-gray-300/50 hover:text-green-600"
+                        id="dropdown-btn">
+                        导航
+                        <img src="assets/下载.svg" alt="下拉菜单图标" class="h-full inline-block ml-2 w-4">
+                    </button>
+                </div>
+                <div class="relative group" id="dropdown-container">
+                    <button
+                        class="bg-white/10 transition-colors duration-200 px-4 py-2 rounded text-sm hover:bg-gray-300/50 hover:text-green-600"
+                        id="dropdown-btn">
+                        帮助
+                        <img src="assets/下载.svg" alt="下拉菜单图标" class="h-full inline-block ml-2 w-4">
+                    </button>
+                </div>
+                <div class="relative group" id="dropdown-container">
+                    <button
+                        class="bg-white/10 transition-colors duration-200 px-4 py-2 rounded text-sm hover:bg-gray-300/50 hover:text-green-600"
+                        id="dropdown-btn">
+                        关注我们
+                        <img src="assets/下载.svg" alt="下拉菜单图标" class="h-full inline-block ml-2 w-4">
+                    </button>
+                </div>
+                <div class="relative group" id="dropdown-container">
+                    <button
+                        class="bg-white/10 transition-colors duration-200 px-4 py-2 rounded text-sm hover:bg-gray-300/50 hover:text-green-600"
+                        id="dropdown-btn">
+                        商务合作
+                        <img src="assets/下载.svg" alt="下拉菜单图标" class="h-full inline-block ml-2 w-4">
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center mr-4">
+                <form class="flex items-center">
+                    <div class="relative flex items-center">
+                        <input type="text" name="q" placeholder="搜索萌娘百科 (按'/'快速搜索)"
+                            class="px-4 py-1 pl-10 border border-black rounded-full bg-white/10 text-sm w-80 hover:border-green-600 focus:border-green-600 focus:outline-none transition-colors duration-200" />
+                        <svg class="absolute left-3 w-4 h-4 text-gray-600 hover:text-green-600 transition-colors duration-200"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="flex justify-center my-10 mx-auto max-w-7xl">
+        <div class="bg-[rgb(241,242,244)]/90 rounded-lg shadow-lg p-6 mr-4 w-3/4">
+            <div>
+                <h1 class="text-4xl font-bold">泛式</h1>
+                <p class="my-3 text-sm text-gray-600">萌娘百科，万物皆可萌的百科全书！转载请标注来源页面的网页链接，并声明引自萌娘百科。内容不可商用。</p>
+                <hr class="my-4 border-gray-300">
+            </div>
+            <div class="flex flex-col items-center">
+                <div
+                    class="border border-gray-300 flex justify-center items-center rounded-lg bg-white/90 px-2 mx-auto w-3/4 border-l-[10px] border-l-[#07a3d7]">
+                    <img src="assets/128px-Bilibili_Logo_Blue.svg.webp " alt="Bilibili Logo" class="h-full w-16">
+                    <div class="px-4 py-0.5 text-sm text-[rgb(25,169,218)] leading-relaxed">
+                        <p class="font-bold">萌娘百科欢迎您参与完善本条目☆<br>
+                            创建新条目时，请先阅读站点收录范围～</p>
+                        <p> 可以从以下几个方面加以改进：</p>
+                        <ul class="list-disc list-inside">
+                            <li>改进格式</li>
+                            <li>完善内容</li>
+                        </ul>
+                        欢迎正在阅读这个条目的您协助编辑本条目。编辑前请阅读Wiki入门或条目编辑规范，并查找相关资料。萌娘百科祝您在本站度过愉快的时光。
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="mt-2 border border-gray-300 flex justify-center items-center rounded-lg bg-white/90 px-2 mx-auto w-3/4 border-l-[10px] border-l-[rgb(0,128,0)]">
+                    <img src="assets/100px-Commons-emblem-success.svg.webp " alt="Bilibili Logo" class="h-full w-16">
+                    <div class="px-4 py-0.5 text-sm] leading-relaxed">
+                        <p class="font-bold text-sm">这个条目曾经被作品作者 / 条目人物巡回过。终于萌百也到了足够让公式前来巡回的知名度了吗！？</p>
+                    </div>
+                </div>
+            </div>
+            <blockquote class="flex justify-center items-center my-6 mx-auto text-center">
+                <p class="font-bold text-3xl text-center">Hello大家好这里是泛式</p>
+            </blockquote>
+            <main class="max-w-4xl mx-auto flow-root pt-4 ">
+                <aside class="float-right w-1/3 ml-3 mb-4 rounded-lg text-sm bg-[rgb(38,202,155)]">
+                    <div class="flex items-center justify-center h-12 text-white">
+                        泛式
+                    </div>
+                    <img src="assets/560px-泛式.webp" alt="卡片图片" class="w-full">
+                    <div>
+                        <table class="text-xs text-center">
+                            <tbody>
+                                <tr>
+                                    <td class="bg-[rgb(224,255,255)] w-1/3">别名</td>
+                                    <td class="bg-white text-xs leading-relaxed">
+                                        泛树人[1]、泛鸽鸽[2]、泛gay、泛八爷、做卡通视频的大哥哥、NTR教父[3]、混沌宅B、
+                                        点番工具人、动画区（新教）大主教、动漫高手（一代目）、DCM(DarkCartoon Man)</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-[rgb(224,255,255)] w-1/3 text-center">国籍</td>
+                                    <td class="bg-white text-xs leading-relaxed">中国</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-[rgb(224,255,255)] w-1/3 text-center">籍贯</td>
+                                    <td class="bg-white text-xs leading-relaxed">江苏南京</td>
+                                <tr>
+                                    <td class="bg-[rgb(224,255,255)] w-1/3 text-center">出生</td>
+                                    <td class="bg-white text-xs leading-relaxed">1994年2月10日</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-[rgb(224,255,255)] w-1/3 text-center">职业</td>
+                                    <td class="bg-white text-xs leading-relaxed">杂谈向up主、MAD作者、旋风游侠</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-[rgb(224,255,255)] w-1/3 text-center">相关人士</td>
+                                    <td class="bg-white text-xs leading-relaxed">
+                                        友人：瓶子君152、赫萝老师、吃素的狮子<br>
+                                        妻子：竹鱼<br>
+                                        泛式的老婆其实是我桂言叶哒[4]<br>
+                                        异时空同位体：爱宕（犬）、表田里道</td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-[rgb(224,255,255)] w-1/3 text-center">粉丝数</td>
+                                    <td class="bg-white text-xs leading-relaxed">加载中...</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="bg-[rgb(98,188,169)] font-bold text-white">代表作品</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="bg-white text-xs leading-relaxed text-left">
+                                        《漫画家桐人》系列 [5]<br>
+                                        《新番妙妙屋节目》系列[6]<br>
+                                        《漫画剧场》系列[7]<br>
+                                        《史诗级NTR科普》[3]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </aside>
+                <div class="[&_p]:text-[14px] [&_p]:mb-4 [&_p]:leading-7 [&_p]:text-[rgb(51,69,86)]
+                            [&_h1]:text-xl [&_h1]:mb-4 [&_h1]:font-bold 
+                            [&_h1]:border-l-[5px] [&_h1]:border-l-[rgb(37,180,73)]
+                            [&_h1]:rounded-sm
+                            [&_h1]:pl-3
+                            [&_h2]:text-md [&_h2]:mb-2 [&_h2]:font-bold
+                            [&_h2]:border-l-[4px] [&_h2]:border-l-[rgb(37,180,73)]
+                            [&_h2]:rounded-sm
+                            [&_h2]:pl-3
+                            [&_li]:text-[14px] [&_li]:text-[rgb(51,69,86)] [&_li]:mb-2
+                            [&_li]:leading-relaxed">
+                    <p>泛式是<a href="https://zh.moegirl.org.cn/Bilibili">哔哩哔哩弹幕网</a>的知名UP主和主播。</p>
+                    <h1>简介</h1>
+                    <p>泛式作品起初以动画的误解向剪辑为主，后来开始做<a href="https://zh.moegirl.org.cn/MAD">MAD</a>并制作了大量高质量作品，
+                        其中《漫画家桐人》登上了<a
+                            href="https://zh.moegirl.org.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A92017%E6%8B%9C%E5%B9%B4%E7%A5%AD">哔哩哔哩2017拜年祭</a>。在2017年起由MAD转型为动画杂谈UP主，
+                        目前视频以杂谈为主，并有少量剪辑类作品和vlog。
+                    </p>
+                    <p>
+                        泛式每周都会直播动画杂谈和联动玩游戏。如果时间充裕，也会直播看影视作品或玩游戏。</p>
+                    <p>
+                        于2017年透露自己有女友<a href="https://zh.moegirl.org.cn/%E7%AB%B9%E9%B1%BC">竹鱼</a>。两人在2020年结婚。
+                    </p>
+                    <h1>大事记</h1>
+                    <table class="mb-4">
+                        <tbody class="[&_td]:text-[14px] [&_td]:leading-7 [&_td]:text-[rgb(51,69,86)]
+                                     [&_th]:text-[14px] [&_th]:w-1/4 [&_th]:text-left [&tr]:justify-between">
+                            <tr>
+                                <th>2011年11月10日</th>
+                                <td colspan="2">发表了自己的第一个视频。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2014年12月13日</th>
+                                <td colspan="2">发表了自己的第一个MAD作品。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2017年1月17日</th>
+                                <td colspan="2">视频《<a href="https://www.bilibili.com/video/BV1Dx41117cg">漫画家桐人</a>》登上"<a
+                                        href="https://zh.moegirl.org.cn/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A92017%E6%8B%9C%E5%B9%B4%E7%A5%AD">哔哩哔哩2017拜年祭</a>"。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2017年7月1日</th>
+                                <td colspan="2">投稿首个杂谈视频《【史诗级科普】NTR到底是个啥？现身说法带你走进NTR的世界！》，并在此后转型为杂谈UP主。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2020年10月1日</th>
+                                <td colspan="2">直播公布与<a href="https://zh.moegirl.org.cn/%E7%AB%B9%E9%B1%BC">竹鱼</a>结婚。
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h1>UP主</h1>
+                    <h2>视频类型</h2>
+                    <p>泛式的新视频的主要类型是：新番导视、新番吐槽、动画剪辑（以及配音）、老番回顾和MAD。</p>
+                    <div>
+                        <p class="font-bold">新番导视</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li class="mb-2">固定在每个日本新番集中播出的季度前介绍当季新番。分为全资讯导视和奶番两个环节。
+                                <ul class="list-disc pl-6 mt-2">
+                                    <li>
+                                        全资讯导视出现较早，一般会简短介绍当季度所有新番。
+                                    </li>
+                                    <li>
+                                        奶番视频出现较晚，会在信息更充足时选出本季度最值得期待的十部动画。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="font-bold">中期吐槽</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>在每个季度中期（大约第三周）对新番进行吐槽和评析，主要是对前三集的内容进行分析和吐槽。
+                                现在是在每个季度第三周左右针对新番（三集定律）进行评析或整活的视频，早期会分为数期视频发布。<del><a
+                                        href="https://zh.moegirl.org.cn/%E9%B8%BD(%E7%94%A8%E8%AF%AD)">现在的泛式已经是鸽子的形状了</a></del>
+                            </li>
+                            <li>在每个季度结束后会对新番进行总结和评分，分为两期视频发布。
+                                曾用名为羞耻的新番妙妙屋和不怎么羞耻的新番GKD。
+                            </li>
+                        </ul>
+                        <p class="font-bold">完结评析</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>固定在每个季度结束后评价本季度的番剧。</li>
+                            <li>会复盘自己的月初奶番环节。由于有时出现夸赞的新番突然暴死而某些并不看好的新番爆火的事件，曾经热衷于在复盘结束后“对自己的毒奶作出惩罚为名”录制一期各种奇奇怪怪的惩罚视频。<del><a
+                                        href="https://zh.moegirl.org.cn/%E6%8A%96M">抖M</a>石锤</del>
+                            </li>
+                        </ul>
+                        <p class="font-bold">让我剪剪</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>通过剪辑对原作的二次创作。</li>
+                            <li>有时作为独立视频出现，有时作为完结评析的一部分。</li>
+                            <li>本节目在命名征集阶段曾被叫做“动漫发廊”。泛式某次直播时在弹幕中看到“让我剪剪”后，遂将动漫发廊抛弃，引起了发廊党的强烈不满。<del>你们不要什么都搞<a
+                                        href="https://zh.moegirl.org.cn/%E5%85%9A%E4%BA%89">党争</a>啊！</del>并在之后表示能在土味上和它有一拼的只有“快乐剪辑男孩”。
+                            </li>
+                        </ul>
+                        <div x-data="{ isOpen: false }"
+                            class="bg-white border border-gray-200 rounded-lg overflow-hidden my-4 w-1/3">
+                            <div
+                                class="p-4 text-sm flex justify-between items-center font-semibold bg-gray-50 border-b border-gray-200">
+                                <span>五颜六色泛 by 彩虹之歌</span>
+                                <button @click="isOpen = !isOpen" class="text-blue-500 text-sm font-normal">
+                                    <span x-text="isOpen ? '[折叠]' : '[展开]'"></span>
+                                </button>
+                            </div>
+                            <div x-show="isOpen" x-transition class="p-4">
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div>
+                                        <img src="assets/358px-白泛.webp" class="w-full rounded-md">
+                                        <p class="mt-2">白泛</p>
+                                    </div>
+                                    <div>
+                                        <img src="assets/362px-橙泛.webp" class="w-full rounded-md">
+                                        <p class="mt-2">橙泛</p>
+                                    </div>
+                                    <div>
+                                        <img src="assets/356px-红泛.webp" class="w-full rounded-md">
+                                        <p class="mt-2">红泛</p>
+                                    </div>
+                                    <div>
+                                        <img src="assets/362px-黄泛.webp" class="w-full rounded-md">
+                                        <p class="mt-2">黄泛</p>
+                                    </div>
+                                    <div>
+                                        <img src="assets/359px-蓝泛.webp" class="w-full rounded-md">
+                                        <p class="mt-2">蓝泛</p>
+                                    </div>
+                                    <div>
+                                        <img src="assets/360px-绿泛.webp" class="w-full rounded-md">
+                                        <p class="mt-2">绿泛</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-bold">新番时光机</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>对10年前老番的回顾，可以看做“补番导视”。</li>
+                            <li>常常引出结论：将新番与老番对比，最终抱怨新番质量差的言论往往站不住脚。因为拿来比的老番往往是精品，而那些质量较差的老番根本不会有人记住。因此，用一个季度的精品和另一个季度的所有动画比对是不公平的。
+                            </li>
+                        </ul>
+
+                        <p class="font-bold">MAD</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>在2015年至2017年间投稿了大量MAD作品。但在转型杂谈UP主后很少做MAD。</li>
+                            <li>目前还在以每年一两部的速度制作MAD类视频（万策尽）。</li>
+                        </ul>
+
+                        <p class="font-bold">搞笑类剪辑</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>这是泛式刚成为UP主时最擅长的类型。在泛式转型杂谈up主后也经常能在新番视频中看到此类剪辑。</li>
+                            <li>有时候泛式也会专门做搞笑剪辑的视频。</li>
+                            <li>泛式曾在直播时透露自己最喜欢做的还是剪辑，而曾经擅长的MAD只是剪辑的载体。</li>
+                        </ul>
+
+                        <p class="font-bold">生活区视频</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>泛式也会在生活区投稿视频，有旅游VLOG、与竹鱼的互动、介绍自己的别墅等。其中大多数视频都是用来恰饭的。</li>
+                            <li>泛式在某次直播时声称自己的生活区视频投稿后一次性掉了8000粉，因此常常有人在后来的生活区视频下发表“-8000”的评论。</li>
+                        </ul>
+
+                        <p class="font-bold">其他类型
+                        <p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>有对某部或某些动画进行吐槽、对某个名词进行解释的杂谈视频，也有各种难以界定类型的视频，目前都是用来恰饭的。</li>
+                        </ul>
+                    </div>
+                    <h2>经历</h2>
+                    <p>泛式在刚成为UP主时就靠玩<a href="https://zh.moegirl.org.cn/%E8%83%96%E6%AC%A1">内裤梗</a>和讲<a
+                            href="https://zh.moegirl.org.cn/%E4%B8%8B%E6%B5%81%E6%A2%97">黄段子</a>的搞笑剪辑视频获得了一定人气，转做MAD后也获得了大量好评，
+                        甚至有作品登上了哔哩哔哩2017拜年祭。后来改做动画杂谈和新番导视，并继续制作剪辑类视频。
+                    </p>
+                    <table class="mb-4">
+                        <tbody class="[&_td]:text-[14px] [&_td]:leading-7 [&_td]:text-[rgb(51,69,86)]
+                                     [&_th]:text-[14px] [&_th]:w-1/5 [&_th]:text-left [&tr]:justify-between">
+                            <tr>
+                                <th>2011年11月10日</th>
+                                <td colspan="2">发表了自己的<a
+                                        href="https://www.bilibili.com/video/BV17x411w7gX">第一个视频</a>。（然后鸽了将近3年）</td>
+                            </tr>
+                            <tr>
+                                <th>2014年7月和8月</th>
+                                <td colspan="2">连续投稿了3个误解向剪辑视频，并在此后一直保持在b站活跃。</td>
+                            </tr>
+                            <tr>
+                                <th>2014年12月13日</th>
+                                <td colspan="2">投稿了第一个MAD作品《<a
+                                        href="https://www.bilibili.com/video/BV1Nx411N7NJ">塔兹米x威尔的正义物语</a>》。并在此后稳定发表MAD视频。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2016年1月29日</th>
+                                <td colspan="2">投稿了单集MAD《<a href="https://www.bilibili.com/video/BV1Js411X7Fj">一拳超人:
+                                        深海王篇——不屈的正义</a>》。本作在很长一段时间里都是泛式播放量最高的作品，后被赛马娘MAD超过。</td>
+                            </tr>
+                            <tr>
+                                <th>2017年1月17日</th>
+                                <td colspan="2">制作的误解系MAD《<a
+                                        href="https://www.bilibili.com/video/BV1Dx41117cg">漫画家桐人</a>》登上哔哩哔哩2017拜年祭。</td>
+                            </tr>
+                            <tr>
+                                <th>2017年7月1日</th>
+                                <td colspan="2">投稿首个杂谈视频《NTR到底是个啥？现身说法带你走进NTR的世界！》并在此后转型为杂谈UP主。</td>
+                            </tr>
+                            <tr>
+                                <th>2019年6月21日</th>
+                                <td colspan="2">在游戏《<a
+                                        href="https://zh.moegirl.org.cn/%E5%8E%9F%E7%A5%9E">原神</a>》陷入抄袭指控时发表原神的首曝视频，详见泛式#《原神》。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2020年3月28日</th>
+                                <td colspan="2">
+                                    在哔哩哔哩的视频中表示要读自己的百科并附上本条目的截图，且该视频每有一万点赞就多读一条，作为一月奶番有所遗漏的惩罚。（其实只是自己想读罢了）4月9号的读本条目视频中出现了大量的喜闻乐见的场景，并且怒斥部分内容是乱写。<del>请各位务必加大力度</del>[8]
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2020年6月4日</th>
+                                <td colspan="2">
+                                    在世纪大盗的<a
+                                        href="https://www.bilibili.com/video/BV1E5411W74y">动漫高手挑战视频</a>中以绝对优势（还放了水）击败“世纪大盗”三人，获得“动漫高手”流动红旗。虽然泛式视频中表示出对“动漫高手”称号的“抗拒”，但是还是在后两期视频评论区评论并且在自己视频中提到自己是“动漫高手一代目”。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2021年1月22日</th>
+                                <td colspan="2">投稿了广受好评的配音剪辑《<a href="https://www.bilibili.com/video/BV1Yh411y7En">新 概 念
+                                        投 胎 ！！</a>》。本作是泛式首次尝试配音类视频。</td>
+                            </tr>
+                            <tr>
+                                <th>2021年2月27日</th>
+                                <td colspan="2">投稿了回顾向视频《<a
+                                        href="https://www.bilibili.com/video/BV16r4y1A7w4">十年前的观众都在看什么神片？「2011年1月新番导视」</a>》，从此开启了新的固定节目“新番时光机”。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2021年8月</th>
+                                <td colspan="2">400万粉达成。泛式自称自己在此后就不再关注视频的数据和涨粉，而是制作自己想做的视频并服务已有的粉丝。</td>
+                            </tr>
+                            <tr>
+                                <th>2021年12月24日</th>
+                                <td colspan="2">投稿了酝酿已久的《<a
+                                        href="https://zh.moegirl.org.cn/%E8%B5%9B%E9%A9%AC%E5%A8%98_Pretty_Derby">赛马娘</a>》剧情MAD《<a
+                                        href="https://www.bilibili.com/video/BV1jF411B7sw">无败的陨落，奇迹的复活!「T.E.I.O」</a>》。这是泛式目前播放量最高的视频。
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2022年1月</th>
+                                <td colspan="2">第四次入选BILIBILI POWER UP 百大UP主。</td>
+                            </tr>
+                            <tr>
+                                <th>2023年1月</th>
+                                <td colspan="2">第五次入选BILIBILI POWER UP 百大UP主。</td>
+                            </tr>
+                            <tr>
+                                <th>2024年1月</th>
+                                <td colspan="2">第六次入选BILIBILI POWER UP 百大UP主。</td>
+                            </tr>
+                            <tr>
+                                <th>2025年1月</th>
+                                <td colspan="2">第七次入选BILIBILI POWER UP 百大UP主。</td>
+                            </tr>
+                    </table>
+                    <h1>与其他UP主的关系</h1>
+                    <div>
+                        <blockquote class="flex justify-center items-center my-6 text-center mx-auto relative">
+                            <div class="font-bold text-xl">我是一个大家闺秀型的男孩子。</div>
+                        </blockquote>
+                        <p class="text-right">—— 泛式</p>
+                        <blockquote class="flex justify-center items-center my-6 text-center mx-auto relative">
+                            <div class="font-bold text-xl">"泛八爷是一朵<a
+                                    href="https://zh.moegirl.org.cn/%E9%AB%98%E5%B2%AD%E4%B9%8B%E8%8A%B1">高岭之花</a>。"
+                            </div>
+                        </blockquote>
+                        <p class="text-right">—— <a
+                                href="https://zh.moegirl.org.cn/%E8%B5%AB%E8%90%9D%E8%80%81%E5%B8%88">赫萝老师</a></p>
+                        <blockquote class="flex justify-center items-center my-6 text-center mx-auto relative">
+                            <div class="font-bold text-xl">"泛式简直是动画区陶渊明啊！"</div>
+                        </blockquote>
+                        <p class="text-right">—— 瓶子君152</p>
+                    </div>
+                    <p>泛式与诸多动画区UP有着不解的 <a href="https://zh.moegirl.org.cn/NTR">NTR</a> 情缘。作为H萌团队成员[注
+                        1]，其与赫萝、瓶子君152三人私交甚笃。</p>
+                    <div x-data="{ showMore: false }" class="mb-4">
+                        <button @click="showMore = !showMore"
+                            class="text-blue-600 hover:text-blue-800 text-sm underline">
+                            点此展开更多
+                        </button>
+
+                        <div x-show="showMore" x-transition class="mt-4">
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>瓶子君在给泛式上提督时泛式未及时感谢，经弹幕提醒后才冷淡回应，后瓶子气急败坏地大呼“上当了”，并将其称之为棒督（<a
+                                        href="https://zh.moegirl.org.cn/%E6%A3%92%E8%AF%BB">棒读</a>的提督）。瓶子借此加入泛式舰长群后，表示自己就像<a
+                                        href="https://zh.moegirl.org.cn/%E7%90%B4%E9%85%92">琴酒</a>进了<a
+                                        href="https://zh.moegirl.org.cn/%E9%BB%91%E8%A1%A3%E7%BB%84%E7%BB%87">酒厂</a>老巢，因为群里每个人，他都在自己群见过。
+                                </li>
+                                <li>非常有趣的是，泛式在2020年4月12日 Lex 直播中给蕾丝上了舰长，蕾丝同样毫无反应。（动画区，惨）</li>
+                                <li>不乏有狂热粉丝进行大量相关二次创作，例如泛式微博超话及lofter相关标签。但是，并不是所有人喜欢这类二次创作，泛式态度未知，但不建议作为梗使用。</li>
+                                <li>目前H萌内部围绕着三人上演着一出白色相簿2（详见瓶子君152条目），吃瓜群众期待更多猛料。[注 2]</li>
+                            </ul>
+
+                            <p class="font-bold">LexBurner</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>14年在 LexBurner 的评论区表明自己有给 Lex 做OP的意思被本人夸奖为大触。</li>
+                                <li>在17年微博问答推出时花66.66元巨资询问蕾皇是否会女装，后被蕾皇发微博当反面教材批评。</li>
+                                <li>曾在 Lex 发布读评论视频后表示“蕾总读评论必秒阿泛三十倍”，并对蕾丝视频的弹幕里有很多妈妈发言表示羡慕，想要真正的妈妈粉。（粉丝：啊啊啊，泛式小天使！男妈妈爱你！）
+                                </li>
+                                <li>20年上舰惨遭无视，参见上文。</li>
+                                <li>在2021年1月24日的麻将回联动魔法使之夜中成功靠魔法（发牌姬的眷顾）赢了Lex三个月的舰长。这就是传说中的一舰三连吗？后者在说出“这把不能被泛式胡了”的下一秒立刻被点炮，在结算后的震惊之中喊出了“多少家庭，因为麻将分崩离析”的名句。
+                                </li>
+                            </ul>
+
+                            <p class="font-bold">吃素的狮子</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>在UP主吃素的狮子的“以物换物”第二期中用生发梳换了偶像狮子的录有中国boy赞美（“林佳奇
+                                    带帅比”）的无价之宝喇叭。（这个喇叭响起的时候，Lucky听尿了。）同样这一期还爆出泛式是当时狮子粉丝列表排行第十的粉丝[9]。</li>
+                                <li>多次参加吃素的狮子的节目《桌游星期六》。（由于参加次数过多一度有《泛式星期六》的调侃）</li>
+                                <li>在吃素的狮子公司栏目“梗百科”英雄传泛式篇中担任自己梗百科英雄传的文案校对，也就是说他亲自通过了处刑自己的部分。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h1>直播</h1>
+                    <p>泛式固定在每周六晚上直播动画杂谈回，并常常在周日晚上直播与其他动画区up主和虚拟区up主联动。在其他时间，泛式会不定期直播玩游戏或观看影视作品。
+                    <h2>虚拟形象</h2>
+
+                    <div class="flex justify-center gap-6 mb-4">
+                        <div class="text-center">
+                            <img src="assets/360px-泛式live2d.webp" alt="直播间截图 2020-05-03"
+                                class="w-32 h-40 object-cover rounded-md mb-2 mx-auto">
+                            <p class="text-sm text-gray-600">直播间截图 2020-05-03</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="assets/339px-FunShiki-Live2D-FullBody.webp" alt="呜哇君 2020-05-03 新浪微博"
+                                class="w-32 h-40 object-cover rounded-md mb-2 mx-auto">
+                            <p class="text-sm text-gray-600">呜哇君 2020-05-03 新浪微博</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="assets/262px-泛式Live2d女人设.webp" alt="诶嘿酱 2021-02-21 哔哩哔哩动态"
+                                class="w-32 object-contain rounded-md mb-2 mx-auto" style="height: 160px;">
+                            <p class="text-sm text-gray-600">诶嘿酱 2021-02-21 哔哩哔哩动态</p>
+                        </div>
+                    </div>
+
+
+                    <p class="font-bold">呜哇君（旋风游侠）</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>2020年5月3日直播中，泛式首次使用了呜哇君的 Live2D 形象。</li>
+                        <li>根据泛式于4月12日直播的介绍，Live2D
+                            形象在4月开始计划，由几乎一人承包了动画区UP主虚拟形象的Kirito丶桐人君设计立绘[10]。形象使用「旋风游侠」作为名称。录播链接
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">诶嘿酱</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>2021年2月20日，泛式使用新的女性Live2D人设直播，并在与弹幕讨论后将其起名为"诶嘿酱"。[11]</li>
+                        <li>据介绍，一开始与画师Kirito丶桐人君商量时表示希望有jk风格，在桐人君表示这个要求限制了他的发挥后，泛式表示桐人君可随意发挥，于是就出现了现在这个面具很大的形象。
+                        </li>
+                        <li>次日，泛式在B站动态公布自己的女皮人设。并有眼尖的泛团诶嘿酱单推人发现人设图有六根手指。</li>
+                        <li>由于诶嘿酱很可爱，促使舰长数量快速增长，泛式成功千舰。</li>
+                        <li>于2021年6月26日的7月新番PV鉴赏会，泛式透露诶嘿酱的形象中有很多元素来源于《调教咖啡厅》的樱之宫莓香。</li>
+                        <li>于2022年7月9日的杂谈会，泛式对舰长群P的木更版诶嘿酱大呼可爱，当即为诶嘿酱加上重女人设。</li>
+                    </ul>
+
+                    <h2>直播趣事</h2>
+                    <p class="font-bold">泛哲</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式常常在直播时说出很有哲理的话，瓶子君152认为他应该出一本名为《泛哲》的哲学书。</li>
+                    </ul>
+
+                    <p class="font-bold">欢迎新朋友</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式的直播间常常出现引战弹幕，而部分观众会用弹幕与引战者争执。为了防止弹幕对骂影响直播间环境，泛式让观众用"ttk"把引战弹幕刷上去。"ttk"后来被改为"太开心啦""欢迎新朋友"以及其变种："欢迎新oo"。
+                        </li>
+                        <li>泛式参加B站官方活动直播观看原神二创时，组织活动的员工看到直播间满屏的"太开心啦"，以为直播间气氛出人意料得好，殊不知这是观众在一次次地把引战弹幕刷上去。</li>
+                    </ul>
+
+                    <p class="font-bold">半夜的磨损</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>由于泛式已经是奔三十的大叔，他常常在深夜丧失思考能力，这种现象被观众称作"磨损"[12]。</li>
+                        <li>泛式也常常自称"猪脑过载"：从11点起，他就会丧失部分思考能力，到12点时，将无法进行耗费脑力的活动。</li>
+                    </ul>
+
+                    <p class="font-bold">泛式阴阳术和高高在上</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式这个ID取自《东京暗鸦》中的"泛式阴阳术"，本意为"表示自己只是一个没有什么来头的泛泛之辈"[13]</li>
+                        <li>在2021年1月30日的直播中，泛式与竹鱼对动漫进行了友善的讨论，因某泛表现出阴阳怪气（婊里婊气）的态度，弹幕纷纷表示"拳头硬了"，并将其称为"泛式阴阳术"。加上人工智能般合适的bgm插入，营造出了莫名的节目效果，但观众们还是强烈建议竹鱼锤爆泛式[14]。
+                        </li>
+                        <li>本次争执的起因是泛式声称竹鱼觉得他对动画"高高在上"。这个梗在泛式的直播间有着强大的生命力：每当泛式以自己看番的经验预测动画的走向时，观众们则会刷弹幕"高高在上"。
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">泛式.jpg</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>在直播看2021年原神生日会开始时说"让我来看看现在原神二创到底卷成什么样了"，在观看到一个动画级别二创作品后发出了"快住手啊，这根本不是二创！"的感叹
+                            ，并看完后表示"现在二创已经卷成这样了吗 ？"[15]</li>
+                        <li>后来由于泛式说"快住手啊！这根本不是二创！"这句话的场面过于搞笑，被简化为"泛式.jpg"，用于称赞高质量的原神二创作品。</li>
+                        <li>在之后直播看原神新春会时表示自己也有出场后立刻出现在了屏幕上并重复了这句话 本人因为并不知道自己会这时出场而尴尬的抱紧了自己，在这段结束后表示尬麻了。[16]</li>
+                    </ul>
+
+                    <p class="font-bold">服饰XP大放送</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式在直播明日方舟时表达了自己的对服装的偏好：他比较喜欢看起来像"另一种战斗服"的皮肤，而不喜欢泳装和看起来轻飘飘的便服，原因是这些皮肤和游戏的整体氛围不搭。</li>
+                        <li>在观众的询问下，泛式表示自己喜欢死库水、运动短裤、网球服、水手服等服饰，认为女仆装一般般，不喜欢旗袍、兔女郎和死库水之外的泳装。</li>
+                    </ul>
+
+                    <p class="font-bold">Vivo忠实用户</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>恰饭后与2024.5.31发起直播观看Vivo S19发布会，展示并大力宣传手中的S19 Pro，在最后使用"AI视效"功能创造出多个表情包。但最终回归了苹果的怀抱。
+                        </li>
+                    </ul>
+                    <div x-data="{ showMoreMemes: false }" class="mb-4">
+                        <button @click="showMoreMemes = !showMoreMemes"
+                            class="text-blue-600 hover:text-blue-800 text-sm underline">
+                            点此展开更多老梗
+                        </button>
+
+                        <div x-show="showMoreMemes" x-transition class="mt-4">
+                            <ul class="list-disc pl-6 space-y-4 text-sm text-gray-700">
+                                <strong>饥饿泛：吃屏幕</strong>
+                                <li>
+
+                                    <p class="mt-2">吃屏幕 by吃年</p>
+                                    <p class="italic">"神推追番能超过50w，我当场就把这个电脑屏幕给吃掉！！！"</p>
+                                    <ul class="list-disc pl-6 mt-2 space-y-1 mb-4">
+                                        <li>1月11日，直播中兴奋地介绍自己喜欢的小众动画《神推偶像登上武道馆我就死而无憾》，随后立下吃屏幕flag。</li>
+                                        <li>2月1日，直播中查看追番人数，并发出嘲讽："很可惜啊，到现在都没有过......才30w追番出头。"</li>
+                                        <li>3月21日，追番人数成功超越50w，"加油啊吃屏幕的大哥哥"，泛式录播组感叹（整活）道。</li>
+                                        <li>3月22日，直播中泛式狡辩道："这个要考虑到...这个时效性的问题...我当时也给了一个时效性...因为慢慢磨总会磨到50w......"
+                                        </li>
+                                        <li>3月28日，泛式在新视频中回收了该flag（神推真的超过后，泛式生吞了由纸张制成的"电脑屏幕"）。</li>
+                                        <li>up主，你的脸疼吗？2020年1月新番打脸大总结！ [1/1]显示视频</li>
+                                        <li>加油啊吃屏幕的大哥哥！ [1/1]显示视频</li>
+                                    </ul>
+                                </li>
+
+                                <strong>硕士泛：不会做题</strong>
+                                <li>
+
+                                    <ul class="list-disc pl-6 mt-2 space-y-1 mb-4">
+                                        <li>2020年3月7日，由于疫情，学生都在上网课，永远17岁的泛式表示想回到学生时代，体验一下上网课做题。</li>
+                                        <li>于是他在网上寻找题目并直播做题，结果从大学找到高中，从高中找到初中，都不会做，还把二元函数读成了二次元函数。</li>
+                                        <li>【泛式/录播】《我的大学》 [3/9][视频从17:10开始播放]显示视频</li>
+                                    </ul>
+                                </li>
+
+                                <strong>海王泛：和竹鱼做过的题目一样多的女友</strong>
+                                <li>
+
+                                    <ul class="list-disc pl-6 mt-2 space-y-1 mb-4">
+                                        <li>在直播中被竹鱼询问谈过多少女朋友时，因下意识说错话× 撒谎√而被竹鱼追问，又因故意忘记初恋而被竹鱼痛斥渣男。</li>
+                                        <li>后反问竹鱼"你还记得你中学时做的第一道题是什么吗？"对此竹鱼表示："我做过多少道题，你谈过多少女朋友，你谈的女朋友跟我做的题一样多吗？！"
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <strong>鲁迅泛：三个总督都是花Q</strong>
+                                <li>
+
+                                    <ul class="list-disc pl-6 mt-2 space-y-1 mb-4">
+                                        <li>2020年4月12日晚，泛式进行四周年纪念直播。泛式说就播一会，陆续上了很多舰来续命，然后花Q大佬B站空间（泛式舰长群核心元老，群昵称紫罗兰永恒花_Q）使用小号连上俩个总督(注)后，因为喜欢的up主喜欢NTR，所以又给lex上了一个总督（没错，更早时候瓶子的ntr提督也是花佬），最后再回来用另一个小号给泛式上了一个总督。
+                                        </li>
+                                        <li>对此，泛式表示："我有三个总督，一个是花Q，另一个是花Q，还有一个是花Q。"</li>
+                                        <li>三个总督带来的人气直接让泛式播到凌晨3点多。经此一夜，泛式舰长群人数由原来的两百多狂飙到三百左右。</li>
+                                        <li>【泛式/录播】直播四周年 [1/4]显示视频</li>
+                                        <li>花老板总督大概的指路：P1 18:30 P2 10:35 P2 17:11（蕾丝的） P2 19:14</li>
+                                    </ul>
+                                </li>
+
+                                <strong>穿越泛：现在是公元几几年？</strong>
+                                <li>
+
+                                    <ul class="list-disc pl-6 mt-2 space-y-1 mb-4">
+                                        <li>在《十三机兵防卫圈》的直播中表示，很想在人前"啊"的一声，然后询问"现在是公元几几年？"，但一直没有机会。</li>
+                                        <li class="italic">
+                                            "太装逼了，我也想哪一次在大街上然后突然"啊"跌倒，别人问我怎么了，然后我说现在是公元几几年，我一直想这样子。或者我曾经想过在学校的时候，在宿舍里面嘛。我的室友在干什么事，我突然像被电击一样，"啊"。然后他问我怎么了，然后我说现在是公元几几年？这样吓他一下，我一直想这样，但是没有机会。"
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <strong>幸福泛：宣布结婚</strong>
+                                <li>
+
+                                    <ul class="list-disc pl-6 mt-2 space-y-1 mb-4">
+                                        <li>2020年10月1日 泛式直播公开自己准备和竹鱼结婚的消息。</li>
+                                        <li>包括瓶子和暗猫在内的多名知名up主朋友前来祝福，《总之就是非常甜》。由于暗猫和泛式都在2020年结婚，且两人都是MADer，所以做MAD囍路一条！现在啊，是瓶子和赫萝酸了。
+                                        </li>
+                                        <li>在此次直播中，泛式罕见地神情紧张、语无伦次、虐狗发粮。回应有关"早生贵子"的话题时，引述脱口秀的台词表达对养娃的恐惧
+                                            "爸爸爸爸，我要上好学校"
+                                            ，引发弹幕造句模仿。</li>
+                                        <li>在大喜的日子将近尾声时，竟播放《分手快乐》《淘汰》《恋爱的魔球》《小苍兰》等歌曲整活。（第一次播成了翻唱版《小苍兰》，然后又放起交响乐版并手舞足蹈）（并表示不放《小幸运》的原因是给团子做mad听太多遍了）
+                                        </li>
+                                        <li>【泛式&竹鱼】我们结婚啦！ [1/4]显示视频</li>
+                                    </ul>
+                                </li>
+
+                                <strong>声优泛：学动物叫</strong>
+                                <li>
+
+                                    <ul class="list-disc pl-6 mt-2 space-y-1 mb-4">
+                                        <li>2021年2月19日与赫萝老师、木糖纯及小司无常的雀魂麻将联动直播中，惩罚环节延续了学动物叫的羞耻play。中途木糖纯模仿狗叫时，泛式一旁的竹鱼表示："太像了，比lucky还像……"随后泛式透露："我跟你们说，竹鱼学羊叫特别像"并表示"下次让她来给你们学一下"。
+                                        </li>
+                                        <li>在之后的麻将局中可以看到但不限于"免责声明""BGM成精"等。赫萝等人对泛式经久不衰的牌运表示不满，而后泛式急转为劣势，虽然多次施展魔法，终于未能逆风翻盘，并被要求模仿羊叫。
+                                        </li>
+                                        <li>赫萝：终于可以听到，大家万众期待的羊叫了吗？赫萝要求竹鱼给泛式的羊叫评分，泛式将此时并不在场的竹鱼召唤出场。</li>
+                                        <li>在模仿羊叫时，由于泛式的笑声过于生草，直播间被"哈哈哈"的弹幕刷屏良久，随后泛式怂恿竹鱼模仿羊叫买一送一，得到一众认可。赫萝：确实比你（泛式）更自然
+                                        </li>
+                                        <li>【泛式/录播】2月麻将合集 [6/11][视频从39:20开始播放]显示视频</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h1>生活</h1>
+                    <h2>早年经历</h2>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>曾经在小学时期和同学玩魔王把公主抢走，而王子前来解救公主，但此时早已黑化的公主却在王子面前和魔王搞了起来的神奇角色扮演游戏，而泛式就担任公主这个神圣的职责——这时候就已经和ntr产生了奇妙的联系了吗？
+                        </li>
+                        <li>幼年时的梦想是成为21世纪著名政治家，军事家，思想家和自人类学会生火和农业革命之后，给人类社会带来最大革新的人类革命家（？），并登上百度百科。</li>
+                        <li>泛式曾自曝自己的中二时期给自己的设定为：在这个世界里，只能用武技的人叫剑士，只会有魔法的人叫术士，还有一种天之骄子，能同时使用武技和魔法的人就称为游侠，而自己又是稀有的风属性的天赋，故被人称为"旋风游侠"！（泛式本人称此条目信息并不完全正确："虽然的确有这个名字，但不是这么来的啊！"）
+                        </li>
+                        <li>除了旋风游侠以外，泛式当年还在自己的小本本上YY记录了班上每一个同学的隐藏身份和隐藏战斗力，分析出最有可能拥有隐藏身份的同学后跑去和他核实身份，"高中同桌 中二 暗号
+                            结婚"（你们肯定都有过（我没有我没有））。</li>
+                        <li>小时候问母亲自己有什么优点，母亲思考了一会后挤出的一句：你...你很善良啊！泛式为此自卑了很久并评价道：你给我找出一个邪恶的中学生看看？可见泛式曾有成为亚撒西男主的潜质。
+                        </li>
+                    </ul>
+                    <div x-data="{ showMoreChildhood: false }" class="mb-4">
+                        <button @click="showMoreChildhood = !showMoreChildhood"
+                            class="text-blue-600 hover:text-blue-800 text-sm underline">
+                            点击查看更多
+                        </button>
+
+                        <div x-show="showMoreChildhood" x-transition class="mt-4">
+                            <ul class="list-disc pl-6 space-y-4 text-sm text-gray-700">
+                                <li>曾经被女同学打踢到小腹，疼的在地上打滚。女生表示："我没用力啊？"</li>
+                                <li>在2022年2月1日晚的直播中称自己在小时候在农村想吃鸡，于是拿着一根棍子追着鸡打，称要"打只鸡吃吃"，此事被亲戚们每次在新年时的闲谈中均会提到，从5岁说到了25岁。[18]
+                                </li>
+                                <li>泛式还曾自曝在上学时期，觉得生病的自己十分无敌，有生病的理由做什么大家都会原谅自己。</li>
+                                <li>幼时曾逼着全家人学唱金刚葫芦娃，姥爷因没学会而被泛式堵在厕所里不让出来。（姥姥：你就唱一下呗。姥爷：不会唱啊！）</li>
+                                <li>某次每周例行杂谈时自称童年时珍惜粮食，会吃掉每一粒米，即使是掉在桌子上或别人掉在桌子上。因为他觉得每一粒米的目标就是被别人吃掉，所以他要实现米的价值。真是个善良的孩子啊。（你会记得你吃过多少粒米吗，泛式？）
+                                </li>
+                                <li>曾经骗一个同学自己是穿越者。且之后与同学在操场上的树下做召唤飞船的迷惑行为，以证明自己穿越者的身份。该同学在初中毕业的同学录里给泛式留言"我知道你当初是骗我的"，从此怀恨在心，后来结婚没有邀请泛式。（其实是已经忘记泛式了。）
+                                </li>
+                                <li>小升初考试是全南京市前十，也因此阴差阳错地进了南京外国语学校门槛最高的法语班。（因为当初泛妈以为这只是兴趣班，但其实是专攻法语。）（但更主要的原因是泛妈当初信了"法语是世界上最美的语言"这句话。泛式长大后才发现这句话其实是一个法国人说的。[注
+                                    3]）</li>
+                                <li>曾于法国留学5年，在德高集团实习。精通FA♂法语，在国外教育文化的熏陶下，泛式看事情的角度比一般人都要刁钻，对问题的见解也比较新颖，这使他在早期周末尬聊直播时会开拓观众的三观，教给观众一些东西。（实习后棱角被磨平，泯然众人矣）。
+                                </li>
+                                <li>在法国留学期间写作了一篇关于日本偶像文化的论文，指导老师甚至也是日本人。[19]</li>
+                                <li>留学期间酷爱猪肉鸡蛋白菜面黑暗料理，原因是制作简单且营养充分。回国遇到室友后曾迫不及待地与其分享，后者评价该料理为"猪食"。</li>
+                                <li>在奇奇怪怪的方面脑路清奇，比如对旧闻中翻唱区up主Q群公开贩卖自己娇喘音频的行为作出调整，换一种委婉的手法推出新购买模式，从而达到被世人认可，而且还能吸金的目的。
+                                    <blockquote class="border-l-4 border-gray-400 pl-4 italic my-2 text-xs">
+                                        "这种东西怎么能直接卖呢？要是我就这样搞，推出淘宝店，并给顾客每一次的购物做记录，根据购买金额换算成独有积分，而积分可以兑换我的独家福利，就比如说娇喘音频什么的，而且这个音频还不会明确标明是"娇喘音频"，要说这是神秘大奖，是一些羞羞的东西，你看这么一来，不仅不会被世人所唾弃，而且还能引发粉丝的购买欲，等等，我该不会是个天才吧。"<br>
+                                        —— 泛式 （竹鱼：你开心就好。）
+                                    </blockquote>
+                                </li>
+                                <li>泛式透露，自己高中时期曾在自习课上和同学打游戏王卡牌，在教导主任第一次路过时防住了，没被发现。和泛式打牌的同学经此一役开始自习，唯留泛式一人收拾卡牌，不曾想，天有不测风云，教导主任梅开二度，大喝一声："哈哈，没想到吧，我杀了个回马枪！"并传唤泛式去办公室，当面扔掉了泛式的第一套正版牌组并宣称要全校通告批评。泛式极为惶恐，将此事告知泛爸后，得到评论，"就这？"最后此事在泛爸与教导主任的交涉后不了了之。
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <h2>现状</h2>
+                    <p class="font-bold">情感状态</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>家有室友兼女助手（lǎo pó）竹鱼小姐（微博："竹鱼"链接、偶尔更新泛冰冰黑照）。</li>
+                        <li>泛式最早在17年拜年祭视频中便确认"女助手竹鱼"，但一直刻意不给竹鱼出镜机会以保护个人隐私，因此观众素来有0.5倍速截竹鱼正脸的特殊爱好（不是）。</li>
+                        <li>但最终在19年12月14日的视频中，竹鱼短暂露脸，并在20年2月4日的春节vlog中首次以卖点出镜。</li>
+                        <li>多次在直播中玩竹鱼的手，据竹鱼本人说泛式喜欢玩竹鱼的指甲。</li>
+                        <li>于2020年10月1日的直播中宣布自己与竹鱼结婚瓶子："他才比我大两岁啊！！！"。</li>
+                        <li>2020年11月14日公布两个人已经在10月领证。</li>
+                        <li>2021年2月10日的生日直播中讲到由于连续几天和竹鱼互捧颜值导致过度自信，后来认清现实并表示：我就是猪。</li>
+                    </ul>
+
+                    <p class="font-bold">居住地</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>目前可以确定泛式活跃于魔都嘉定的别墅中，家庭成员有饲养的前流浪狗Lucky、冻鳗和助手竹鱼。</li>
+                        <li>被问及为何不回南京发展（那里人际关系简单且生活成本低）时，泛式表示自己也不知道（大概只是想远离原生家庭罢）。</li>
+                        <li>2021年3月1日，泛式在微博公布自己新收养了一只狗，名字暂定为冻鳗Lucky："它才比我晚来几年啊！！！"。虽然大家都在竹鱼的直播间云撸过狗了。</li>
+                        <li>2021年7月8日，泛式发布了新的一期vlog,在冻鳗出镜时表示"鳗鳗长残了"这就是原创动漫的高开低走吗。</li>
+                    </ul>
+
+                    <h2>个人爱好</h2>
+                    <p class="font-bold">NTR</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式乃 NTR 作品狂热爱好者：在直播中泛式就曾多次给观众安利 NTR 相关的游戏、动画以及本子，并常常对观众表露自己对 NTR 作品即泛氏哲学的热爱。</li>
+                        <li>因此，当直播或者动画涉及NTR话题时往往会飘过"泛式狂喜"的弹幕或者评论。泛式累了，泛式不想狂喜</li>
+                        <li>泛式曾在自己的科普视频中透露自己之所以能达到对 NTR 作品这么深层次理解的原因是因为自己有着多年的 NTR 鉴赏经验。即用分镜讲自己的故事。</li>
+                        <li>在视频的评论区中，拜年祭导演平安夜的噩梦发问："所以说..你平时都在研究些什么啊。"泛式回复称ntr作品是多年的爱好，研究这行比做视频还早。牛头人带师泛式名不虚传
+                        </li>
+                        <li>泛式特别喜欢动画里面扭曲的名场面尤其是NTR场面，例如在街角魔族第九话中虾米口吉田优子抛弃了千代田桃陪着阳夏木蜜柑看电影，出影院时三人撞见的名场面，泛式表示这是抑制不住的快乐。而其室友则痛斥"你今晚biss"。
+                        </li>
+                        <li>除了视频科普，泛式也非常喜欢在直播中给观众科普 NTR 知识：第一次直播人数到达2000的时候讲的就是 NTR
+                            相关知识；而第一次直播上B站首页、第一次观看人数到达10000时都是在讲
+                            NTR 相关的东西。所以第一次从MAD区转战杂谈区时泛式所选择的题材就是他最爱、接触时间最多的 NTR。</li>
+                    </ul>
+                    <div class="bg-gray-50 border-l-4 border-blue-400 p-6 my-6 mx-auto max-w-4xl">
+                        <div class="text-sm leading-relaxed text-gray-700 font-bold">
+                            "在优秀的 NTR
+                            作品中，比起"睡"这一类肤浅的嘿嘿场景，创作者会将更多的精力放在对"夺取"这一环节的细节刻画上。能够名留青史的NTR作品都无一不在对角色的心理活动上，有着极其精彩的描写。
+                            <br><br>
+                            NTR
+                            提供了一个进入幻想世界的入口：一些人选择代入黄毛，体验作为加害者，人性中原始的罪恶；一些人选择代入被苦主，感受珍视之物被毁灭的悲剧与苦痛；另一些人选择代入女主，体验身为高等智慧生物却无法抵抗原始兽性的欲望，耻辱，却又不屈的堕落史诗。
+                            <br><br>
+                            在马斯洛的需求层级中，性是与食物和水并列的最底层需求，而爱是和社交等价的高级需求，NTR的本质就是一种对人类需求层次的颠覆，底层的肉体快感是否能逾越高层的精神需求，NTR的求道者们，得以在虚拟的世界中寻求人性的真谛，并追逐着对性与爱的思考。"<br>
+                        </div>
+                    </div>
+
+                    <p class="font-bold">资深杰学家</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式苦心孤诣地研习数百遍《如果早知道，男生也会被性侵》后，能将任何状况转化为杰学情景，他的直播、微博、B站动态里都已充满了杰学气息。泛式在杰学领域里已达到"独上高楼，望尽天涯路"的境界，成为众多杰学家中的一方泰斗。（泛鸽不要啊（震声））
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">一色股</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>全仓购入一色彩羽股赔得血本无归，但目前不承认购入过一色股且自称为老八雪党冠军粉石锤。</li>
+                        <li>2015年6月十八号日记：我擦，好萌啊，一色。</li>
+                        <li>喜欢一色，想给团子做MAD的雪乃党比企谷八泛（瓶子原话）</li>
+                        <li>在2020年四月3日的奶番视频中公然表明要以《让我剪剪》的栏目方式做春物的IF线以守护输掉的自己各大党派。"剧情最好的肯定是一色线！！""没有人会受伤的世界，就由我来守护！！！"
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">其他爱好</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>是月球人，贞德厨。</li>
+                        <li>轨迹粉丝，单推黑兔，作为不买手办的人甚至为了黑兔去买手办。不过也曾对新作的师姐XP放出过，发表过类似换老婆的DD发言。</li>
+                        <li>虚拟YouTuber绊爱的忠实粉丝。（喜欢的原因可能是因为在这个智障身上找到了某种共鸣）</li>
+                        <li>多次参加吃素的狮子的节目《桌游星期六》由于参加次数过多一度有《泛式星期六》的调侃，结合节目、泛式在狮子桌游读评论的评论区评论和玩桌游的照片大致可推知泛式有这方面的兴趣。
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">抖M属性</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>经常自爆黑历史，并自己一条一条读出来，能在羞耻中获取异样的快感。</li>
+                        <li>2020年3月28日发布了一部视频，故意找理由来决定阅读自己的百科。</li>
+                    </ul>
+
+                    <p class="font-bold">果粉（不完全是）</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>全家出镜的移动设备均为苹果（除Surface外），泛式曾用iPhone 7 Plus,8 Plus等，目前应该是使用iPhone 14 Pro真我GT Neo6
+                            SE、Vivo S19
+                            Pro......。曾做出洗自己的手机zz行为，本人解释为：既然苹果手机这么牛逼，那他应该会有防水功能的啊！iPhone shower（确信）</li>
+                        <li>曾经是忠实的三星用户，觉得安卓手机里能和苹果对抗的只有三星。后临近毕业时因想玩的狼人杀游戏优先上架ios而心动，恰巧有一位同学因想要埋葬手机里和前女友的回忆在售卖手机，于是花两百欧元从该同学手中买了二手苹果，从此开启了了苹果之旅。
+                        </li>
+                        <li>至于电脑，泛式则一直是忠实的Win党，早期泛式使用一游戏本，现使用台式机。</li>
+                    </ul>
+                    <h1>其他趣闻</h1>
+                    <div class="flex justify-center mb-4">
+                        <img src="https://placehold.co/600x300/eee/333?text=由泛式粉丝制作的恶搞图片"
+                            alt="由泛式粉丝制作的恶搞图片，夸奖/迫害泛式与不少名人气质相像" class="w-3/4 rounded-md">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mb-4">由泛式粉丝制作的恶搞图片，夸奖/迫害泛式与不少名人气质相像</p>
+
+                    <h2>称号</h2>
+                    <p class="font-bold">泛八爷</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式和著名日本音乐家米津玄师的职业轨迹相似：米津玄师以VOCALOID
+                            Producer成名而后因唱歌大火，泛式则是因MADer成名而后通过杂谈收获大量的粉丝，而米津玄师又称八爷，故泛式被瓶子君152戏称为泛八爷。瓶子君152曾因被观众询问"泛八爷"的来源不堪其扰而要求观众去看本条目。
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">二次元舅舅</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>在2022年7月的两个整活视频中，泛式称自己为2010年昏迷穿越至二次元并在那里生活了12年后回来利用自己的二次元知识在Bilibili上传视频赚钱的二次元舅舅。
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">NTR教父</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式对NTR相关内容深感兴趣且颇有研究，故被夸张成"教父"。</li>
+                    </ul>
+
+                    <p class="font-bold">讲卡通的大鼻子叔叔</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>卡通是动画的别称，泛式的作品大多与动画相关，鼻子又相对较大，故有此称呼。在泛式自己整活的视频中，也多次玩过这个梗。</li>
+                    </ul>
+
+                    <p class="font-bold">泛gay</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>早年以宛如"小奶狗"一般的声音迅速斩获一大批粉丝，而后期从直播间里的氛围加上他本身特有的声线，更让人觉得他就是一个弱气总受，符合人们对男同性恋的刻板印象。虽然泛gay已婚，但他内心深处的潜意识里是喜欢男性的
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">泛冰冰</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>面对资本主义的诱惑泛式果断地选择了妥协，不再用爱发电，在女朋友竹鱼的帮助下开始了自己淘宝卖家的生涯。</li>
+                        <li>第一件用自己形象做的周边则是冰垫，在那几周的直播里大概有一半时间在宣传冰垫。功夫不负有心人，第一批冰垫顺利卖光，随后膨胀的泛式没有考虑到夏天的离去大量定制了第二批冰垫，导致货物大量囤积。
+                        </li>
+                        <li>于是每到周末的夜晚，在B站33989号直播间里总能听到一个gaygay的声音在寒冬中低语呢喃着："买一个冰垫吧，各位大佬买一个冰垫吧，他能为你在冬天的暖气房中添抹一丝凉意……求求你们买一个啊……"
+                        </li>
+                        <li>后来各位观众老爷因为听到泛式gaygay的声音过于哀怨而产生了恻隐之心，几位大佬把库存清空后作为粉丝福利以抽奖的形式全部送出。由于这场卖冰垫清库存之战持续时间过久，期间每一次直播都会被泛式的冰垫广告洗脑，所以人们将他称为冬天里的泛冰冰。
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">吃鸡快递员</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式沉迷于绝地求生，在游戏中他可以体会到到跳伞模拟器的真实感，拾取收集物品时的快感，悄悄赠送到别人手上的刺激感，以及帮助别人吃鸡的幸福感，这使他对吃鸡快递员这份职业充满了决心。泛式宽恕了其他玩家用比较粗暴的方式拿走快递的行为，并对他们远去的身影送上了最美好的祝福，真是让人敬佩。
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">女装大佬</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>在粉丝的不断追问下，泛式总算回应了"你什么时候才肯给我们看穿女装的照片"这一问题，"照片我迟早都会发，但女装那是不可能的。"然而泛鸽却在直播中不经意透露出自己经常穿女朋友的衣服，甚至在当时就开着摄像头穿着竹鱼姐的衣服直播。至于女装照其实也已经爆了，就是泛鸽的淘宝店里那个日本JK制服包买家样品图，左边的模特是竹鱼姐，右边的就是泛式。
+                        </li>
+                    </ul>
+
+                    <h2>其他</h2>
+                    <p class="font-bold">有很多女粉的错觉</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>常产生自己曾经有很多女粉的幻觉，并为现在全是gay粉表示惋惜。</li>
+                        <li>实际上在泛式的粉丝里如果看见那种非常可爱的ID+非常可爱的头像，甚至连说话风格都是少女心满满的，不用怀疑，他们都是男的。</li>
+                    </ul>
+
+                    <p class="font-bold">生日蛋糕</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>2018年的生日前夕深夜，泛式发现女助手竹鱼的手机在响，而此时助手早已睡着，发现是一位热心群友向竹鱼询问泛式收货地址，要送泛式一份蛋糕作为惊喜。泛式假装竹鱼回复了地址，然后在第二天生日直播回十分棒读地表示"真是太惊喜了"，随后对该网友道歉并表示是自己回的私信。并在两年后的生日直播回二度鞭尸。
+                        </li>
+                    </ul>
+
+                    <p class="font-bold">通信工程硕士的稀烂网络</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>你画我猜比赛（动画区烂网大赛）第一期中泛式因网卡而几度掉线，招来了瓶子君的调侃："有一说一，通信工程硕士能不能把自己家的网搞好一点"。</li>
+                        <li>本人于2021年1月24日的杂谈回直播中在回忆了半天自己的专业全称后做出了迟来却合理、优雅、完美的辩解："我们这个系它其实不是一个通信系，它更像是三个部分组成的，一个是信息工程，一个电气工程，再加一部分我们常说的这个通信工程，这三个部分组成了我们这个系。所以你们老说我什么网啊网不网的，那这个通信本来在我们这个里面只占三分之一，啊不是四分之一，就是信息、电气、通信、和人文，所以它其实是比较杂的一个系。"
+                        </li>
+                        <li>1月24日当天更早些的时候，泛式在直播间黑屏和观众一起看百大颁奖，播到自己出场的时候网络正好卡顿，因此完全错过了那一部分。"诶到我了，我他妈怎么卡了我草"</li>
+                        <li>在2022年7月23日的直播中因为上海大暑天太热再次烂网，导致直播直接推迟到晚上十点半，期间差点崩溃。7月24日，录播组上传直播录播也受到网络影响。</li>
+                    </ul>
+
+                    <p class="font-bold">法语口音</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>有时会不自觉地咳出一口老痰把汉语拼音h[x]发成法语小舌音r[ʀ]</li>
+                    </ul>
+
+                    <p class="font-bold">微博超话</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>在深夜偷偷关注了自己的微博超话，并不小心发到了微博上（这位弟弟原来你也喜欢泛式啊）</li>
+                    </ul>
+
+                    <p class="font-bold">认错宠物</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>2021年2月19日晚，饭后散步，误以为是lucky，并大喊lucky快回家！被狗主人发现后难掩尴尬。</li>
+                    </ul>
+
+                    <p class="font-bold">不喜欢短发和耳饰</p>
+
+                    <h2>关于一果</h2>
+                    <blockquote class="border-l-4 border-gray-400 pl-4 italic my-4 text-sm">
+                        "当有一只完全体的一果出现时，如果她愿意，我可以自己不生小孩，收养这个一果并且（等她）长大后把所有财产都留给她"<br>
+                        —— 泛式
+                    </blockquote>
+
+                    <p>一果指的是2022年4月新番《相合之物》中的女主角雪平一果，性格品质深受泛式喜爱，以至于想把她当成自己女儿来养，把所有财产都留给她给她打钱的程度。在讨论其他动画中类似的女儿型角色时，泛式直播间内围绕一果逐渐形成了奇怪的评价体系。
+                    </p>
+
+                    <p class="font-bold">果的含义</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>果在前期指代可爱程度，后演变并规范为关于财产的度量衡。如今果指的是泛式愿意给予（无血缘关系且法律上唯一的）被收养人的财产的量的单位。</li>
+                    </ul>
+
+                    <p class="font-bold">果的定义</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>泛式的财产总量归一化为1时，愿意给予被收养人的财产的量与其财产总量之比。该单位量纲为【1】，但是从定义的来源出发，通常将这个比值的单位称为【一果】，简称【果】，习惯上以小数表示。
+                        </li>
+                    </ul>
+
+                    <p class="text-center text-sm text-gray-600 mb-4">本质还是战力排行榜，电子斗蛐蛐，不要过于认真哦~</p>
+
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <h3 class="font-bold mb-2">评价体系打分榜：</h3>
+                        <table class="w-full text-sm">
+                            <tbody class="[&_td]:py-1 [&_td]:px-2 [&_td]:text-xs">
+                                <tr>
+                                    <td class="font-medium">橘爱丽丝</td>
+                                    <td>0.4果</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">后藤二里</td>
+                                    <td>0.45果</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">菲伦</td>
+                                    <td>0.5果</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">星野日向</td>
+                                    <td>0.7~0.8果</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">维尔汀</td>
+                                    <td>0.75果</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">后藤一里</td>
+                                    <td>1.2果→1果 1里=1果</td>
+                                </tr>
+                                <tr class="bg-yellow-100">
+                                    <td class="font-bold">雪平一果</td>
+                                    <td class="font-bold">1果 计 量 单 位 女 儿 天 花 板</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">黑兔</td>
+                                    <td>1.5果 战 力 叠 加 无 法 预 测</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">梗小姐</td>
+                                    <td>10果 战 力 膨 胀 误 差 过 大 J K 天 花 板</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">久留美</td>
+                                    <td>负2000万果"我要是他爸，我TM疯了"</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">泛式自己</td>
+                                    <td>2果</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="bg-white/90 rounded-lg shadow-lg p-6 w-1/4 self-start sticky top-16
+                            [&_h2]:text-md [&_h2]:mb-2 [&_h2]:font-bold
+                            [&_h2]:border-l-[4px] [&_h2]:border-l-[rgb(37,180,73)]
+                            [&_h2]:rounded-sm
+                            [&_h2]:pl-3">
+            <h2>目录</h2>
+            <div class="js-toc"></div>
+        </div>
+    </div>
+</body>
+
+</html>

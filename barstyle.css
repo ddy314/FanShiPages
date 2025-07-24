@@ -1,0 +1,15 @@
+
+.toc-list {
+    list-style: none;
+    padding-left: 0;
+}
+.toc-list .toc-list {
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+}
+.is-active-link {
+    background-color: rgb(239 246 255);
+    border-left-color: rgb(59 130 246);
+    color: rgb(30 64 175);
+    font-weight: 500;
+}
