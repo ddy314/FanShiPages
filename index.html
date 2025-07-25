@@ -7,6 +7,7 @@
     <title>泛式 - 萌娘百科，万物皆可萌的百科全书！</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="test.js"></script>
     <style>
         blockquote {
             font-weight: 100;
@@ -1006,15 +1007,203 @@
                 </div>
             </main>
         </div>
-        <div class="bg-white/90 rounded-lg shadow-lg p-6 w-1/4 self-start sticky top-16
-                            [&_h2]:text-md [&_h2]:mb-2 [&_h2]:font-bold
-                            [&_h2]:border-l-[4px] [&_h2]:border-l-[rgb(37,180,73)]
-                            [&_h2]:rounded-sm
-                            [&_h2]:pl-3">
-            <h2>目录</h2>
-            <div class="js-toc"></div>
+        <div class="bg-white/90 rounded-lg shadow-lg w-1/4 self-start sticky top-16 max-h-[40vh] overflow-hidden
+                [&_h2]:text-md [&_h2]:mb-2 [&_h2]:font-bold
+                [&_h2]:border-l-[4px] [&_h2]:border-l-[rgb(37,180,73)]
+                [&_h2]:rounded-sm
+                [&_h2]:pl-3" x-data="tocNavigation()">
+
+            <!-- 固定的标题区域 -->
+            <div class="p-6 pb-3">
+                <h2>目录</h2>
+            </div>
+
+            <!-- 可滚动的导航内容区域 -->
+            <div class="px-6 pb-6 pt-3 overflow-y-auto" style="max-height: calc(40vh - 80px);">
+                <nav class="space-y-1">
+                    <template x-for="item in tocItems" :key="item.id">
+                        <div>
+                            <!-- 一级标题 -->
+                            <a @click="scrollToSection(item.title)"
+                                :class="activeSection === item.title ? 'bg-green-100 text-green-700 border-l-3 border-green-500' : 'text-gray-700 hover:bg-gray-50'"
+                                class="block w-full text-left px-3 py-2 text-sm transition-colors duration-200 border-l-3 border-transparent cursor-pointer">
+                                <span x-text="item.number"></span>
+                                <span x-text="item.title"></span>
+                            </a>
+
+                            <!-- 二级标题 -->
+                            <template x-for="subItem in item.children" :key="subItem.id">
+                                <a @click="scrollToSection(subItem.title)"
+                                    :class="activeSection === subItem.title ? 'bg-green-100 text-green-700 border-l-3 border-green-500' : 'text-gray-600 hover:bg-gray-50'"
+                                    class="block w-full text-left px-6 py-2 text-sm ml-4 transition-colors duration-200 border-l-3 border-transparent cursor-pointer">
+                                    <span x-text="subItem.number"></span>
+                                    <span x-text="subItem.title"></span>
+                                </a>
+
+                                <!-- 三级标题 -->
+                                <template x-for="subSubItem in subItem.children" :key="subSubItem.id">
+                                    <a @click="scrollToSection(subSubItem.title)"
+                                        :class="activeSection === subSubItem.title ? 'bg-green-100 text-green-700 border-l-3 border-green-500' : 'text-gray-500 hover:bg-gray-50'"
+                                        class="block w-full text-left px-9 py-2 text-sm ml-8 transition-colors duration-200 border-l-3 border-transparent cursor-pointer">
+                                        <span x-text="subSubItem.number"></span>
+                                        <span x-text="subSubItem.title"></span>
+                                    </a>
+                                </template>
+                            </template>
+                        </div>
+                    </template>
+                </nav>
+            </div>
         </div>
-    </div>
+
+        <script>
+            function getData(menuArray) {
+                let m1 = [];
+
+                const elements = document.querySelectorAll('h1,h2,h3');
+                elements.forEach((el) => {
+                    m1.push({
+                        level: ['h1', 'h2', 'h3'].indexOf(el.tagName.toLowerCase()) + 1,
+                        text: el.textContent?.trim(),
+                        id: el.id || el.textContent?.trim()
+                    });
+                });
+                m1 = m1.filter((el) => el.text != '泛式' && el.text != '目录');
+                menuArray = [];
+                let stack = [];
+                let counters = [0, 0, 0];
+                m1.forEach((item) => {
+                    const menuNode = {
+                        id: item.id,
+                        title: item.text,
+                        children: [],
+                        number: ''
+                    };
+                    while (stack.length > 0 && stack[stack.length - 1].level >= item.level) {
+                        stack.pop();
+                    }
+                    const currentLevel = item.level - 1;
+                    counters[currentLevel]++;
+                    for (let i = currentLevel + 1; i < counters.length; i++) {
+                        counters[i] = 0;
+                    }
+                    let numberParts = [];
+                    for (let i = 0; i <= currentLevel; i++) {
+                        if (counters[i] > 0) {
+                            numberParts.push(counters[i]);
+                        }
+                    }
+                    menuNode.number = numberParts.join('.');
+
+                    menuNode.level = item.level;
+
+                    if (stack.length === 0) {
+                        menuArray.push(menuNode);
+                    } else {
+                        stack[stack.length - 1].children.push(menuNode);
+                    }
+                    stack.push(menuNode);
+                });
+                console.log(menuArray);
+                return menuArray;
+            }
+            function tocNavigation() {
+                return {
+                    activeSection: '',
+                    tocItems: getData([]),
+                    init() {
+                        window.addEventListener('scroll', () => {
+                            this.updateActiveSection();
+                        });
+                    },
+                    scrollToSection(title) {
+                        const element = Array.from(document.querySelectorAll('h1, h2, h3'))
+                            .find(el => el.textContent.trim() === title);
+                        if (element) {
+                            element.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            this.activeSection = title;
+                        }
+                    },
+                    updateActiveSection() {
+                        const headings = document.querySelectorAll('h1, h2, h3');
+                        let currentSection = '';
+
+                        for (let i = 0; i < headings.length; i++) {
+                            const currentHeading = headings[i];
+                            const headingText = currentHeading.textContent.trim();
+
+                            if (headingText === '目录' || headingText === '泛式') {
+                                continue;
+                            }
+
+                            const nextHeading = headings[i + 1];
+                            const currentRect = currentHeading.getBoundingClientRect();
+
+                            if (!nextHeading) {
+                                if (currentRect.top <= 100) {
+                                    currentSection = headingText;
+                                }
+                            } else {
+                                const nextRect = nextHeading.getBoundingClientRect();
+                                if (currentRect.top <= 100 && nextRect.top > 100) {
+                                    currentSection = headingText;
+                                }
+                            }
+                        }
+
+                        if (currentSection && currentSection !== this.activeSection) {
+                            this.activeSection = currentSection;
+                            console.log('Updated activeSection to:', currentSection);
+
+                            // 添加自动滚动功能
+                            this.scrollTocToActiveItem();
+                        }
+                    },
+
+                    scrollTocToActiveItem() {
+                        setTimeout(() => {
+                            // 方法1：直接通过类名选择器找到可滚动容器
+                            const tocContainer = document.querySelector('[x-data="tocNavigation()"] .overflow-y-auto');
+
+                            if (tocContainer) {
+                                // 在容器内查找当前高亮的链接
+                                const tocLinks = tocContainer.querySelectorAll('a');
+                                let activeElement = null;
+
+                                tocLinks.forEach(link => {
+                                    const linkText = link.textContent.trim();
+                                    const titlePart = linkText.replace(/^\d+\.?\s*/, '');
+                                    if (titlePart === this.activeSection) {
+                                        activeElement = link;
+                                    }
+                                });
+
+                                if (activeElement) {
+                                    const containerRect = tocContainer.getBoundingClientRect();
+                                    const activeRect = activeElement.getBoundingClientRect();
+
+                                    const relativeTop = activeRect.top - containerRect.top;
+                                    const relativeBottom = activeRect.bottom - containerRect.top;
+
+                                    // 检查是否需要滚动（给一些缓冲区域）
+                                    if (relativeTop < 20 || relativeBottom > containerRect.height - 20) {
+                                        const scrollTop = tocContainer.scrollTop + relativeTop - (containerRect.height / 2) + (activeRect.height / 2);
+
+                                        tocContainer.scrollTo({
+                                            top: Math.max(0, scrollTop),
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                }
+                            }
+                        }, 0);
+                    }
+                };
+            }
+        </script>
 </body>
 
 </html>
